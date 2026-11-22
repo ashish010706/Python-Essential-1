@@ -1,0 +1,8 @@
+secret_message = input("Enter the secret message (substring): ")
+coded_message = input("Enter the coded message (string): ")
+
+if secret_message in coded_message:
+    position = coded_message.find(secret_message)
+    print(f"Found! '{secret_message}' is hidden inside the message (starting at index {position}).")
+else:
+    print(f"Not found. '{secret_message}' is not in the coded message.")
