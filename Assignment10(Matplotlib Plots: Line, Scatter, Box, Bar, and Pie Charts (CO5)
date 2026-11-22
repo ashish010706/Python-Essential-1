@@ -1,0 +1,51 @@
+import matplotlib.pyplot as plt
+import numpy as np
+
+# Sample data
+categories = ["Mon", "Tue", "Wed", "Thu", "Fri"]
+values = [12, 19, 7, 15, 22]
+x = np.linspace(0, 10, 30)
+y = np.sin(x) + np.random.normal(0, 0.15, size=len(x))
+box_data = [
+    np.random.normal(50, 10, 100),
+    np.random.normal(60, 15, 100),
+    np.random.normal(55, 8, 100),
+]
+pie_labels = ["Python", "C++", "Java", "Other"]
+pie_sizes = [45, 25, 20, 10]
+
+fig, axes = plt.subplots(2, 3, figsize=(14, 8))
+fig.suptitle("Matplotlib Chart Examples", fontsize=14)
+
+# 1. Line Plot
+axes[0, 0].plot(categories, values, marker="o", color="tab:blue")
+axes[0, 0].set_title("Line Plot")
+axes[0, 0].set_xlabel("Day")
+axes[0, 0].set_ylabel("Value")
+
+# 2. Scatter Plot
+axes[0, 1].scatter(x, y, color="tab:green", alpha=0.8)
+axes[0, 1].set_title("Scatter Plot")
+axes[0, 1].set_xlabel("X")
+axes[0, 1].set_ylabel("Y")
+
+# 3. Box Plot
+axes[0, 2].boxplot(box_data, labels=["Group A", "Group B", "Group C"])
+axes[0, 2].set_title("Box Plot")
+axes[0, 2].set_ylabel("Score")
+
+# 4. Bar Chart
+axes[1, 0].bar(categories, values, color="tab:orange")
+axes[1, 0].set_title("Bar Chart")
+axes[1, 0].set_xlabel("Day")
+axes[1, 0].set_ylabel("Count")
+
+# 5. Pie Chart
+axes[1, 1].pie(pie_sizes, labels=pie_labels, autopct="%1.1f%%", startangle=140)
+axes[1, 1].set_title("Pie Chart")
+
+# Hide unused 6th subplot
+axes[1, 2].axis("off")
+
+plt.tight_layout()
+plt.show()
