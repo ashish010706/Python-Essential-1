@@ -1,0 +1,16 @@
+# 1. Create a list of assignments
+assignments = ["Math Worksheet", "Physics Lab Report", "History Essay"]
+print("Initial assignments:", assignments)
+
+# 2. Add a new assignment to the list
+assignments.append("Python Essentials Lab 3")
+print("After adding a new assignment:", assignments)
+
+# 3. Remove a completed assignment
+completed = "Physics Lab Report"
+if completed in assignments:
+    assignments.remove(completed)
+    print(f"Removed completed assignment: '{completed}'")
+
+# 4. Print the updated list of assignments
+print("Updated assignments list:", assignments)
