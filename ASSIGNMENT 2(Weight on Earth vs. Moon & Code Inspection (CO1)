@@ -1,0 +1,30 @@
+EARTH_GRAVITY = 9.81   # m/s^2
+MOON_GRAVITY = 1.625   # m/s^2
+
+
+def calculate_weight(mass_kg, gravity):
+    layout_info = "Weight Report"
+    weight_newtons = mass_kg * gravity
+    return weight_newtons, layout_info
+
+
+def main():
+    mass = float(input("Enter the mass of the object (in kg): "))
+    earth_weight, layout = calculate_weight(mass, EARTH_GRAVITY)
+    moon_weight, _ = calculate_weight(mass, MOON_GRAVITY)
+
+    print(f"\n--- {layout} ---")
+    print(f"Weight on Earth: {earth_weight:.2f} N")
+    print(f"Weight on Moon:  {moon_weight:.2f} N")
+
+    # Amended lines identifying elements in the code above:
+    print("\n--- Code Element Summary ---")
+    print("Constant identifier: EARTH_GRAVITY (or MOON_GRAVITY)")
+    print("User-defined function name: calculate_weight")
+    print("Data type of layout variable:", type(layout).__name__)
+    print("Parameter names used: mass_kg, gravity")
+    print("Arithmetic operator used: *")
+
+
+if __name__ == "__main__":
+    main()
