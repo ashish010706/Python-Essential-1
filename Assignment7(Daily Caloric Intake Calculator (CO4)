@@ -1,0 +1,16 @@
+def calculate_calories(carbs, fats, proteins):
+    """Calculate total calories from grams of carbs (4 kcal/g), fats (9 kcal/g), and proteins (4 kcal/g)."""
+    return (carbs * 4) + (fats * 9) + (proteins * 4)
+
+
+def main():
+    carbs = float(input("Enter grams of carbohydrates consumed: "))
+    fats = float(input("Enter grams of fats consumed: "))
+    proteins = float(input("Enter grams of proteins consumed: "))
+
+    total_calories = calculate_calories(carbs, fats, proteins)
+    print(f"\nTotal daily caloric intake: {total_calories:.2f} kcal")
+
+
+if __name__ == "__main__":
+    main()
