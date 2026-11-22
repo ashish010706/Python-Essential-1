@@ -1,0 +1,57 @@
+def get_number(prompt):
+    while True:
+        try:
+            return float(input(prompt))
+        except ValueError:
+            print("Invalid input! Please enter a valid number.")
+
+
+def main():
+    print("--- Python Calculator ---")
+    num1 = get_number("Enter the first number: ")
+    num2 = get_number("Enter the second number: ")
+
+    print("\nBasic Operations: +, -, *, /")
+    print("Optional Hard Operations: ** (exponentiation), % (modulus), // (floor division)")
+    op = input("Choose an operator: ").strip()
+
+    result = None
+    is_hard_op = op in ("**", "%", "//")
+
+    if op == "+":
+        result = num1 + num2
+    elif op == "-":
+        result = num1 - num2
+    elif op == "*":
+        result = num1 * num2
+    elif op == "/":
+        if num2 == 0:
+            print("Error: Division by zero is not allowed.")
+            return
+        result = num1 / num2
+    elif op == "**":
+        try:
+            result = num1 ** num2
+        except OverflowError:
+            print("Error: Result is too large to compute.")
+            return
+    elif op == "%":
+        if num2 == 0:
+            print("Error: Modulus by zero is not allowed.")
+            return
+        result = num1 % num2
+    elif op == "//":
+        if num2 == 0:
+            print("Error: Floor division by zero is not allowed.")
+            return
+        result = num1 // num2
+    else:
+        print("Invalid operator! Please choose a supported operation.")
+        return
+
+    category = "Hard Calculation" if is_hard_op else "Basic Calculation"
+    print(f"\n[{category}] {num1} {op} {num2} = {result}")
+
+
+if __name__ == "__main__":
+    main()
