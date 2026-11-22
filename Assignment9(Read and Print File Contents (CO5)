@@ -1,0 +1,13 @@
+file_path = input("Enter the file path to read: ").strip()
+
+try:
+    with open(file_path, "r", encoding="utf-8") as file:
+        content = file.read()
+        print("\n--- File Contents ---")
+        print(content)
+except FileNotFoundError:
+    print(f"Error: The file '{file_path}' was not found.")
+except PermissionError:
+    print(f"Error: Permission denied when trying to read '{file_path}'.")
+except OSError as e:
+    print(f"Error reading file: {e}")
